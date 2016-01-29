@@ -1,2 +1,18 @@
 ---
 # tasks file for gsl
+
+- name: install required packages
+  yum: name={{ item }} state=present
+  with_items:
+    - gcc
+    - gcc-gfortran
+    - gcc-c++
+    - perl
+
+- name: check if already installed
+  stat: path={{ gsl_prefix }}/lib
+  register: gsl_dir
+  changed_when: gsl_dir.stat.exists == False
+
+- include: install.yml
+  when: gsl_dir.stat.exists == False

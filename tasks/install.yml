@@ -1,0 +1,17 @@
+---
+# tasks file for gsl/install
+
+- name: create gsl dorectory
+  file: path={{ gsl_prefix }} state=directory owner=root group=root mode=0755
+
+- name: download gsl
+  get_url: url={{ gsl_url }} dest=/tmp/gsl-{{ gsl_version }}.tar.gz
+
+- name: extract gsl tarball
+  unarchive: copy=no src=/tmp/gsl-{{ gsl_version }}.tar.gz dest=/tmp creates=/tmp/gsl-{{ gsl_version }}
+
+- name: install gsl
+  shell: ./configure --prefix={{ gsl_prefix }} && make && make install
+  args:
+    chdir: /tmp/gsl-{{ gsl_version }}
+    creates: "{{ gsl_prefix}}/lib"

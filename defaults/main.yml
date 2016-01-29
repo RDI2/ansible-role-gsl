@@ -1,2 +1,6 @@
 ---
 # defaults file for gsl
+
+gsl_version: 2.1
+gsl_url: ftp://ftp.gnu.org/gnu/gsl/gsl-2.1.tar.gz
+gsl_prefix: /opt/gsl/{{ gsl_version }}

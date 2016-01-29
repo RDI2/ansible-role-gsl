@@ -24,13 +24,13 @@ Installation
 Regular installation:
 
 ```
-ansible-galaxy install rdi2sys.gsl
+ansible-galaxy install RDI2.gsl
 ```
 
 Installation to a specific directory(e.g. roles/):
 
 ```
-ansible-galaxy install -p roles/ rdi2sys.gsl
+ansible-galaxy install -p roles/ RDI2.gsl
 ```
 
 Example Playbook
@@ -38,7 +38,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: rdi2sys.gsl }
+         - { role: RDI2.gsl }
 
 License
 -------

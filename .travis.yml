@@ -24,3 +24,6 @@ script:
   - ./artdc.sh reprovision
   - ./artdc.sh verify
   - ./artdc.sh clean
+
+notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/

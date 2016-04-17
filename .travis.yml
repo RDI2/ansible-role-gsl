@@ -1,0 +1,26 @@
+sudo: required
+
+language: python
+python:
+  - 2.7
+
+addons:
+  apt:
+    packages:
+    - rsync
+
+services:
+  - docker
+
+install:
+  - pip install ansible
+  - cd tests
+  - sed -i 's/^DOCKER_CONFIG=.*/DOCKER_CONFIG=/' artdcrc
+  - sed -i 's/^DOCKER_MACHINE_IP=.*/DOCKER_MACHINE_IP=127.0.0.1/' artdcrc
+  - ./artdc.sh init
+
+script:
+  - ./artdc.sh provision
+  - ./artdc.sh reprovision
+  - ./artdc.sh verify
+  - ./artdc.sh clean

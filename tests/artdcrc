@@ -1,0 +1,44 @@
+# testrc - configuration for test.sh
+
+#
+# Directory path for storing variable data
+#
+ROLE_TEST_DOTFILE_PATH=".artdc"
+
+#
+# Configuration of Docker Machine
+#
+# Docker Machine default
+DOCKER_MACHINE="default"
+DOCKER_MACHINE_IP="192.168.99.100"
+DOCKER_CONFIG=$(docker-machine config $DOCKER_MACINE)
+DOCKER_SSH_TIMEOUT=10
+# Local Docker
+#DOCKER_MACHINE_IP="127.0.0.1"
+#DOCKER_CONFIG=
+## Docker for Mac
+#DOCKER_MACHINE_IP="192.168.64.2"
+#DOCKER_CONFIG=
+#DOCKER_SSH_TIMEOUT=20
+DOCKER_SSH_PORT=2223
+DOCKER_SSH_PUBKEY_PATH=$ROLE_TEST_DOTFILE_PATH/sshkey.pub
+DOCKER_SSH_PRIVKEY_PATH=$ROLE_TEST_DOTFILE_PATH/sshkey
+DOCKER_SSH_PUBKEY=$(test -f $DOCKER_SSH_PUBKEY_PATH && cat $DOCKER_SSH_PUBKEY_PATH)
+
+#
+# Pick a dockerfile
+#
+DOCKERFILE_DIR=Dockerfile.d
+#DOCKERFILE=ubuntu_1404
+#DOCKERFILE=ubuntu_1510
+#DOCKERFILE=ubuntu_1604
+#DOCKERFILE=debian_jessie
+#DOCKERFILE=debian_wheezy
+#DOCKERFILE=fedora_22
+#DOCKERFILE=fedora_23
+#DOCKERFILE=centos_7
+DOCKERFILE=centos_6
+#DOCKERFILE=opensuse_13
+
+DOCKER_IMAGE=artdc_ssh_image
+DOCKER_CONTAINER=artdc_ssh_container

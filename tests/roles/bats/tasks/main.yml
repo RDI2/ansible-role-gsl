@@ -1,0 +1,20 @@
+---
+# tasks file for bats
+
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- include: debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: pull bats
+  git: repo=https://github.com/sstephenson/bats.git dest=/root/bats update=no
+
+- name: install bats
+  shell: ./install.sh /usr/local
+  args:
+    chdir: /root/bats
+    creates: /usr/local/bin/bats
+
+- name: copy test.bats
+  copy: src=test.bats dest=/root/test.bats owner=root group=root mode=0700

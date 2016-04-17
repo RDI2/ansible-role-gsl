@@ -1,0 +1,5 @@
+---
+- hosts: docker-container
+  remote_user: root
+  roles:
+    - this-role

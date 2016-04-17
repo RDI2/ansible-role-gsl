@@ -1,25 +1,21 @@
-Ansible Role - gsl
-==================
+# Ansible Role - gsl
+[![Build Status](https://travis-ci.org/RDI2/ansible-role-gsl.svg?branch=master)](https://travis-ci.org/RDI2/ansible-role-gsl)
 
 This playbook installs GNU Scientific Library (GSL).
 
-Platforms
----------
+## Platforms
 
 CentOS 6.7 is the only platform that is supported and tested so far.
 
-Role Variables
---------------
+## Role Variables
 
 - Check out [defaults/main.yml](defaults/main.yml)
 
-Dependencies
-------------
+## Dependencies
 
 None.
 
-Installation
-------------
+## Installation
 
 Regular installation:
 
@@ -33,19 +29,16 @@ Installation to a specific directory(e.g. roles/):
 ansible-galaxy install -p roles/ RDI2.gsl
 ```
 
-Example Playbook
-----------------
+## Example Playbook
 
     - hosts: servers
       roles:
          - { role: RDI2.gsl }
 
-License
--------
+## License
 
 MIT License.
 
-Author Information
-------------------
+## Author
 
 - Koji Tanaka, RDI2
